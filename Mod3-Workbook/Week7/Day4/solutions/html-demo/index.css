@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+}
+
+#header-container {
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1% 8%;
+    
+    background-color: rgb(255, 174, 0);
+}
+
+#icon-name {
+    margin: 0;
+}
+
+#navigation-container {
+    display: flex;
+    align-items: center;
+}
+
+#navigation-container > .navigation-links {
+    font-size: 14px;
+    text-decoration: none;
+    color: black;
+
+    padding-right: 10px;
+}
+
+button.sign-in {
+    background-color:rgb(255, 174, 0);
+    border-style: none;
+    color: black;
+}
+
+button.get-started {
+    background-color: black;
+    color: white;
+    border-radius: 15px;
+    border-style: none;
+    padding: 5px 10px;
+
+    text-align: center;
+}
+
+#discover-container {
+    display: flex;
+    height: 65vh;
+    border-bottom: 1px solid black;
+    background-color: rgb(255, 174, 0)
+}
+
+#stay-curious-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 8%;
+    width: 65%;
+    
+}
+
+#stay-curious {
+    margin: 0;
+}
+
+#discovery-curious {
+    margin: 10px 0px;
+    font-weight: normal;
+}
+
+#start-reading {
+    width: fit-content;
+    padding: 1% 4%;
+
+    border-radius: 15px;
+    border-style: none;
+    background-color: black;
+    color: white;
+}

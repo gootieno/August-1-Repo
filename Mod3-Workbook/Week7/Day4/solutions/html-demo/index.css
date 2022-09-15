@@ -59,6 +59,7 @@ button.get-started {
     padding-left: 8%;
     width: 65%;
     
+    position: relative;
 }
 
 #stay-curious {
@@ -84,7 +85,9 @@ button.get-started {
     /* display: flex;
     flex-wrap: wrap; */
     width: 400px;
-
+    position: relative;
+    top: 20%;
+    margin-left:10px;
 }
 
 #m-madness-container > p {

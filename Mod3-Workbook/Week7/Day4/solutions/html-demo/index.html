@@ -27,12 +27,19 @@
             <button id="start-reading">Start reading</button>
         </div>
         <div id='m-madness-container'>
-            <p>M</p>
-            <p>M</p>
-            <p>M</p>
-            <p>M</p>
-            <p>M</p>
+            
         </div>
     </div>  
+    <script>
+        const madness = document.getElementById('m-madness-container')
+        // <div></div>
+        for(let i = 0; i < 200; i++){
+            const m = document.createElement('p')
+            //<p></p>
+            m.innerText = 'M'
+            //<p>M</p>
+            madness.appendChild(m)
+        }
+    </script>
 </body>
 </html>

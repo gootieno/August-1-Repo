@@ -79,3 +79,15 @@ button.get-started {
     background-color: black;
     color: white;
 }
+
+#m-madness-container {
+    /* display: flex;
+    flex-wrap: wrap; */
+    width: 400px;
+
+}
+
+#m-madness-container > p {
+    display: inline-block;
+    margin: 0;
+}

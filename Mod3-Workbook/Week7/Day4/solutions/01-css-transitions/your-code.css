@@ -1,0 +1,63 @@
+/* ===== Problem 1 ===== */
+
+.rocket_svg {
+    height: 200px;
+    width: auto;
+    margin-left: 300px;
+    /* Your code here */
+    /* transition: rotate 2s; */
+    transition: transform
+
+}
+
+.rocket_svg:hover {
+    /* rotate: 250deg; */
+    transform: rotate(250deg);
+} 
+
+/* Create rocket hover animation here
+
+
+/* ===== Problem 2 ===== */
+
+.astronaut_svg {
+    height: 200px;
+    width: auto;
+    margin-left: 200px;
+    /* Your code here */
+    /* transition: transform 2s; */
+    transition-duration: 2s;
+}
+
+.astronaut_svg:hover {
+    transform: translateX(100px)
+}
+
+
+
+/* ======= BONUS ======= */
+
+.earth_svg {
+    height: 200px;
+    width: auto;
+    margin-left: 300px;
+    
+    /* animation: spin infinite linear 1s; */
+
+    /* Singling out each property value would look something like this */
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: 2s;
+    animation-name: spin;
+    /* animation: spin infinite cubic-bezier(0, 1.19, 0.78,-0.67) 1s; */
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform: rotate(360deg)
+    }
+}

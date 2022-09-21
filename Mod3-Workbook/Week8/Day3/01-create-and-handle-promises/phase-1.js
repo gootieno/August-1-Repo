@@ -1,5 +1,6 @@
 function stretch() {
   // Your code here
+  return new Promise()
 }
 
 function runOnTreadmill() {

@@ -41,44 +41,63 @@ const server = http.createServer((req, res) => {
     }
     // Do not edit above this line
 
-    // define route handlers here
     if (req.method === "GET" && req.url === "/") {
-      const resBody = "Dog Club";
-
       res.statusCode = 200;
       res.setHeader("Content-Type", "text/plain");
-      return res.end(resBody);
+      return res.end("Dog Club");
     }
-
+    // GET /dogs
     if (req.method === "GET" && req.url === "/dogs") {
-      const resBody = "Dog Index";
-
       res.statusCode = 200;
       res.setHeader("Content-Type", "text/plain");
-      return res.end(resBody);
+      return res.end("Dogs index");
     }
-
-    if (req.method === "GET" && req.url.startsWith("/dogs")) {
-      const urlParts = req.url.split("/");
-      console.log(urlParts);
-      if (urlParts.length === 3 && urlParts[urlParts.length - 1] !== "new") {
+    // GET /dogs/new
+    if (req.method === "GET" && req.url === "/dogs/new") {
+      res.statusCode = 200;
+      res.setHeader("Content-Type", "text/plain");
+      res.write("Dog create form page");
+      return res.end();
+    }
+    // GET /dogs/:dogId // ex: /dogs/3
+    if (req.method === "GET" && req.url.startsWith("/dogs/")) {
+      const urlParts = req.url.split("/"); // ['', 'dogs', '3']
+      if (urlParts.length === 3) {
         const dogId = urlParts[2];
-        console.log("dog id", dogId);
-
-        const resBody = `Dog details for dogId: ${dogId}`;
         res.statusCode = 200;
         res.setHeader("Content-Type", "text/plain");
-        return res.end(resBody);
+        res.write("Dog details for dogId: ");
+        res.write(dogId);
+        return res.end();
       }
+    }
+    // POST /dogs
+    if (req.method === "POST" && req.url === "/dogs") {
+      res.statusCode = 302;
+      res.setHeader("Location", "/dogs/" + getNewDogId());
       return res.end();
     }
-
-    if (req.method === "POST" && req.url === "/dogs") {
-      const dogId = getNewDogId();
-
-      res.statusCode = 302;
-      res.setHeader("Location", "/dogs/" + dogId);
-      return res.end();
+    // POST /dogs/:dogId
+    if (req.method === "POST" && req.url.startsWith("/dogs/")) {
+      const urlParts = req.url.split("/");
+      if (urlParts.length === 3) {
+        const dogId = urlParts[2];
+        res.statusCode = 302;
+        res.setHeader("Location", "/dogs/" + dogId);
+        return res.end();
+      }
+    }
+    // GET /dogs/:dogId/edit // /dogs/3/edit
+    if (req.method === "GET" && req.url.slice(0, 6) === "/dogs/") {
+      const urlParts = req.url.split("/");
+      if (urlParts.length === 4 && urlParts[3] === "edit") {
+        const dogId = urlParts[2];
+        res.statusCode = 200;
+        res.setHeader("Content-Type", "text/plain");
+        res.write("Dog edit form page for dogId: ");
+        res.write(dogId);
+        return res.end();
+      }
     }
     // Do not edit below this line
     // Return a 404 response when there is no matching route handler

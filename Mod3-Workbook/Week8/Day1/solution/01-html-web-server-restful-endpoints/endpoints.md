@@ -32,11 +32,16 @@ GET /posts/:postId/comments
 Access the create page for a post's comment
 GET /posts/:postId/comments/new
 
+renders this below:
+```html
+<form action="/posts/:postId/comments" method="post" />
+```
+
 Access the edit page for a comment
 GET /comments/:commentId/edit
 
 Submit a like for a post
-POST /posts/:postId/likes 
+POST /posts/:postId/likes
 
 Delete a like for a post
 POST /posts/:postId/likes/:likeId/delete

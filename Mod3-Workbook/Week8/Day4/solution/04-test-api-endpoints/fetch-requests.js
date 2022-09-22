@@ -20,3 +20,6 @@ Paste your code for fetch requests here once you finish each task.
 */
 
 // Your code here
+
+// Extra Practice with JSON data :) 
+// https://jsonplaceholder.typicode.com/guide/

@@ -7,3 +7,10 @@ li {
 }
 
 /* Your code here */
+[data-type="dairy"] {
+    background-color: blue
+}
+
+[data-type="bakery"] {
+    background-color: gold
+}

@@ -1,48 +1,82 @@
 /* ============================== PHASE 1 + 2 ============================== */
+const parseCookies = () => {
+  let allCookies = document.cookie;
+  console.log("all cookie parse func", allCookies);
+
+  let splitCookiesKvP = allCookies.split(";");
+  console.log("split cookies ", splitCookiesKvP);
+  let cookiesObject = {};
+
+  for (let x = 0; x < splitCookiesKvP.length; x++) {
+    let kvp = splitCookiesKvP[x].trim().split("=");
+    //themeName=dragon => [themeName, dragon]
+    cookiesObject[kvp[0]] = kvp[1];
+  }
+  console.log("cookies object ", cookiesObject);
+
+  return cookiesObject; // {themeName: dragon}
+};
 
 // For storing user's theme selection in cookies
 function storeTheme(themeName) {
   // Your code here
-  document.cookie = `theme-name=${themeName};max-age=15`;
+  document.cookie = `themeName=${themeName};max-age=5`;
 }
 
 // For restoring theme from cookies, if selected by the user in the past
 function restoreTheme() {
   // Your code here
 
-  const cookie = document.cookie;
-  console.log("cookie ", cookie);
+  //   restore theme 2.0
+  const cookiesObject = parseCookies();
 
-  const cookieValue = cookie.split("=")[1];
+  if (cookiesObject.themeName) {
+    // setTheme(cookiesObject.themeName);
+    document.documentElement.className = `theme-${cookiesObject.themeName}`;
+  }
 
-  console.log("cookie value ", cookieValue);
+  //   const allCookies = document.cookie;
+  //   console.log("all cookies ", allCookies);
 
-  if (cookieValue) setTheme(cookieValue);
+  //   const cookie = allCookies.split("=");
+  //   console.log("cookies array ", cookie);
+
+  //   const themeName = cookie[1];
+
+  //   if (themeName) setTheme(themeName);
 }
 
 // For clearing theme selection from cookies (reset to default)
 function clearTheme() {
   // Your code here
-  document.cookie = "theme-name=;max-age=0;";
+  document.cookie = "themeName=";
 }
 
 /* ================================ PHASE 3 ================================ */
 
-// For storing user's display name in cookies
+// For storing user's display name
 function storeName(displayName) {
-  // Your code here
+  //!!START
+  document.cookie = `displayName=${displayName}`;
+  //!!END
 }
 
-// For restoring user's display name from cookies, if set in the past
+// For restoring user's display name, if set in the past
 function restoreName() {
-  // Your code here
+  //!!START
+  const storedName = getCookieValue("displayName");
+  if (storedName) {
+    setInputValue("display-name", storedName);
+  }
+  //!!END
 }
 
-// For clearing user's display name from cookies
+// For clearing user's display name from browser storage
 function clearName() {
-  // Your code here
+  //!!START
+  document.cookie = `displayName=; max-age=0`;
+  //!!END
 }
-
 /* ========================================================================= */
 /* ====================== DO NOT EDIT BELOW THIS LINE ====================== */
 /* ========================================================================= */

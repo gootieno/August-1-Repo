@@ -44,7 +44,7 @@ const createImageElement = async () => {
 };
 
 // sets cat image to local storage and returns a catUrl
-export const fetchImage =  () => {
+export const fetchImage = async () => {
 
   try {
     const response = await fetch("https://api.thecatapi.com/v1/images/search");
